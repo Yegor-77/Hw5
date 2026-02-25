@@ -2,25 +2,20 @@
 <html lang="uk">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Д з</title>
-    <link rel="stylesheet" href="./css/style.css" />
+    <title>Контакти</title>
   </head>
   <body>
-    <div class="container" id="bookmarkApp">
-      <h1>Закладк</h1>
-      <input type="text" id="bookmarkInput" placeholder="URL" />
-      <button id="addBookmarkBtn">Додать</button>
-      <ul id="bookmarkList"></ul>
-    </div>
+    <h2>Контакти</h2>
 
-    <div class="container" id="formApp">
-      <h1>Формат</h1>
-      <input type="text" id="username" placeholder="Логін" />
-      <input type="password" id="password" placeholder="Пароль" />
-      <button id="saveBtn">Зберегти</button>
-    </div>
+    <input class="name" placeholder="Ім'я" />
+    <input class="surname" placeholder="Прізвище" />
+    <input class="phone" placeholder="Телефон" />
+    <input class="email" placeholder="Email" />
 
-    <script src="./script.js"></script>
+    <button onclick="addContact()">Додати</button>
+
+    <ul class="list"></ul>
+
+    <script src="script.js"></script>
   </body>
 </html>
