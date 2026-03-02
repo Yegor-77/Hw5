@@ -1,31 +1,50 @@
-const nameInput = document.querySelector(".name");
-const surnameInput = document.querySelector(".surname");
-const phoneInput = document.querySelector(".phone");
-const emailInput = document.querySelector(".email");
-const list = document.querySelector(".list");
+//1
 
-function addContact() {
-  const contact =
-    nameInput.value +
-    " " +
-    surnameInput.value +
-    " | " +
-    phoneInput.value +
-    " | " +
-    emailInput.value;
+let minutes = 60;
+const hourTimer = document.getElementById("hourTimer");
+const message = document.getElementById("message");
 
-  list.innerHTML += `<li>${contact} <button onclick="this.parentElement.remove()">X</button></li>`;
+let hourInterval = setInterval(() => {
+  minutes--;
+  hourTimer.textContent = minutes + " хв";
 
-  localStorage.setItem("contacts", list.innerHTML);
+  if (minutes === 30) {
+    message.textContent = "⚠ Залишилось менше половини часу!";
+    message.classList.add("warning");
+  }
 
-  clearInputs();
-}
+  if (minutes <= 0) {
+    clearInterval(hourInterval);
+    hourTimer.textContent = "Час вийшов!";
+  }
+}, 60000);
 
-function clearInputs() {
-  nameInput.value = "";
-  surnameInput.value = "";
-  phoneInput.value = "";
-  emailInput.value = "";
-}
+//2
 
-list.innerHTML = localStorage.getItem("contacts") || "";
+const secondTimer = document.getElementById("secondTimer");
+const startBtn = document.getElementById("startBtn");
+
+let timeLeft = 30000;
+let secondInterval;
+
+startBtn.addEventListener("click", () => {
+  startBtn.disabled = true;
+  timeLeft = 30000;
+
+  secondInterval = setInterval(() => {
+    timeLeft--;
+
+    secondTimer.textContent = (timeLeft / 1000).toFixed(3);
+
+    if (timeLeft === 10000) {
+      secondTimer.classList.add("animate");
+    }
+
+    if (timeLeft <= 0) {
+      clearInterval(secondInterval);
+      secondTimer.textContent = "0.000";
+      secondTimer.classList.remove("animate");
+      startBtn.disabled = false;
+    }
+  }, 1);
+});

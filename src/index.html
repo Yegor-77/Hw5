@@ -2,10 +2,12 @@
 <html lang="uk">
   <head>
     <meta charset="UTF-8" />
-    <title>Контакти</title>
+    <title>Таймери</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h2>Контакти</h2>
+    <h2>Завдання 1</h2>
+    <div class="timer" id="hourTimer">60 хв - да да , я хитрий , вам ще 30 хвилин чекати - а я просто отдихаю в сторонке - удачи!!</div>
 
     <input class="name" placeholder="Ім'я" />
     <input class="surname" placeholder="Прізвище" />
@@ -13,9 +15,8 @@
     <input class="email" placeholder="Email" />
 
     <button onclick="addContact()">Додати</button>
+    <button id="startBtn">Почати</button>
 
-    <ul class="list"></ul>
-
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>
